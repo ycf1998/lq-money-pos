@@ -17,7 +17,7 @@ money:
   # 多租户
   tenant:
     # 开关
-    enabled: false
+    enabled: true
     # 请求头
     header: Y-tenant
     # 默认租户id
