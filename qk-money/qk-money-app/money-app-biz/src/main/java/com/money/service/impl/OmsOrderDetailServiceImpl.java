@@ -7,6 +7,8 @@ import com.money.service.OmsOrderDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -19,4 +21,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OmsOrderDetailServiceImpl extends ServiceImpl<OmsOrderDetailMapper, OmsOrderDetail> implements OmsOrderDetailService {
 
+    @Override
+    public List<OmsOrderDetail> listByOrderNo(String orderNo) {
+        return this.lambdaQuery().eq(OmsOrderDetail::getOrderNo, orderNo).list();
+    }
 }

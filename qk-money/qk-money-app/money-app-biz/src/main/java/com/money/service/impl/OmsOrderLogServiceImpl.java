@@ -7,6 +7,8 @@ import com.money.service.OmsOrderLogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -19,4 +21,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OmsOrderLogServiceImpl extends ServiceImpl<OmsOrderLogMapper, OmsOrderLog> implements OmsOrderLogService {
 
+    @Override
+    public List<OmsOrderLog> listByOrderId(Long orderId) {
+        return this.lambdaQuery().eq(OmsOrderLog::getOrderId, orderId).list();
+    }
 }
