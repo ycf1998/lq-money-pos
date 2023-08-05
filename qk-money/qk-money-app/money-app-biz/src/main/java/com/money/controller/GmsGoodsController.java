@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
 
@@ -36,14 +37,16 @@ public class GmsGoodsController {
 
     @PostMapping
     @PreAuthorize("@rbac.hasPermission('gmsGoods:add')")
-    public void add(@Validated(ValidGroup.Save.class) @RequestBody GmsGoodsDTO addDTO) {
-        gmsGoodsService.add(addDTO);
+    public void add(@Validated(ValidGroup.Save.class) @RequestPart("goods") GmsGoodsDTO addDTO,
+                    @RequestPart(required = false) MultipartFile pic) {
+        gmsGoodsService.add(addDTO, pic);
     }
 
     @PutMapping
     @PreAuthorize("@rbac.hasPermission('gmsGoods:edit')")
-    public void update(@Validated(ValidGroup.Update.class) @RequestBody GmsGoodsDTO updateDTO) {
-        gmsGoodsService.update(updateDTO);
+    public void update(@Validated(ValidGroup.Update.class) @RequestPart("goods") GmsGoodsDTO updateDTO,
+                       @RequestPart(required = false) MultipartFile pic) {
+        gmsGoodsService.update(updateDTO, pic);
     }
 
     @DeleteMapping
