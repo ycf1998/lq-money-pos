@@ -391,7 +391,6 @@ CREATE TABLE `sys_tenant`  (
 -- Records of sys_tenant
 -- ----------------------------
 INSERT INTO `sys_tenant` VALUES (0, 'M', 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png', '', 'www.money.com', '麦尼收银', '主租户', 0, '', '2022-05-29 10:15:22', '', '2022-03-26 14:06:28', 99, 0);
-INSERT INTO `sys_tenant` VALUES (1657587207341559809, 'A', 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png', '', '', '北京分店', '真好，开分店了', 1, 'money', '2023-05-14 11:25:49', 'money', '2023-05-14 11:22:41', 99, 0);
 
 -- ----------------------------
 -- Table structure for sys_user
